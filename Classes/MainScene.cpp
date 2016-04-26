@@ -3,6 +3,8 @@
 #include "ui/CocosGUI.h"
 #include "CharacterReader.hpp"
 #include "PieceReader.hpp"
+#include "Character.hpp"
+#include "Piece.hpp"
 
 USING_NS_CC;
 
@@ -96,7 +98,103 @@ bool MainScene::init()
     Size size = Director::getInstance()->getVisibleSize();
     rootNode->setContentSize(size);
     ui::Helper::doLayout(rootNode);
+    
+    
+    // 寿司タワーを作る
+    this->pieceNum = 10;
+    this->pieceIndex = 0;
+
+    this->pieceNode = rootNode->getChildByName("pieceNode");
+    this->lastObstacleSide = Side::Left;
+    
+    for (int i = 0; i < this->pieceNum; ++i) {
+        auto hoge = CSLoader::createNode("Piece.csb");
+//        Piece* piece = dynamic_cast<Piece*>(hoge);
+        Piece* piece = static_cast<Piece*>(hoge);
+//        Piece* piece = dynamic_cast<Piece*>(CSLoader::createNode("Piece.csb"));
+        
+        float rollHeight = piece->getSpriteHeight();
+        piece->setPosition(0.0f, rollHeight / 2.0f * i);
+        this->pieceNode->addChild(piece);
+        this->pieces.pushBack(piece);
+        this->lastObstacleSide = this->getSideForObstacle(this->lastObstacleSide);
+        piece->setObstacleSide(lastObstacleSide);
+    }
+
+    this->character = rootNode->getChildByName<Character*>("character");
+    
     addChild(rootNode);
 
     return true;
+}
+
+void MainScene::onEnter() {
+    Layer::onEnter();
+    setupTouchHandling();
+}
+
+void MainScene::setupTouchHandling()
+{
+    auto touchListener = EventListenerTouchOneByOne::create();
+    
+    touchListener->onTouchBegan = [&](Touch* touch, Event* event)
+    {
+        // MainSceneの座標システムでタッチの位置を取得する
+        Vec2 touchLocation = this->convertTouchToNodeSpace(touch);
+        
+        // タッチが画面の右側か左側かを確認する
+        // キャラクターを適切なサイドに移動させる
+        if (touchLocation.x < this->getContentSize().width / 2.0f)
+        {
+            this->character->setSide(Side::Left);
+        }
+        else
+        {
+            this->character->setSide(Side::Right);
+        }
+        stepTower();
+        return true;
+    };
+    
+    this->getEventDispatcher()->addEventListenerWithSceneGraphPriority(touchListener, this);
+}
+
+Side MainScene::getSideForObstacle(Side side)
+{
+    Side nextSide;
+    switch (side) {
+        case Side::None: {
+            float rand = CCRANDOM_0_1();
+            if (rand < 0.45f) {
+                nextSide = Side::Left;
+            } else if(rand < 0.90f) {
+                nextSide = Side::Right;
+            } else {
+                nextSide = Side::None;
+            }
+            break;
+        }
+        default: {
+            nextSide = Side::None;
+            break;
+        }
+    }
+    
+    return nextSide;
+}
+
+void MainScene::stepTower()
+{
+    auto currentPiece = this->pieces.at(this->pieceIndex);
+    float pieceHeight = currentPiece->getSpriteHeight();
+    
+    currentPiece->setPositionY(currentPiece->getPositionY() + pieceHeight / 2.0f * this->pieceNum);
+    currentPiece->setLocalZOrder(currentPiece->getLocalZOrder() + 1);
+
+    this->lastObstacleSide = getSideForObstacle(this->lastObstacleSide);
+    currentPiece->setObstacleSide(this->lastObstacleSide);
+                                  
+    this->pieceNode->setPositionY(this->pieceNode ->getPositionY() + -1.0f * pieceHeight / 2.0f);
+    
+    this->pieceIndex = (this->pieceIndex + 1) % this->pieceNum;
 }

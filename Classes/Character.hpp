@@ -10,13 +10,17 @@
 #define __SushiNeko__Character__
 
 #include "cocos2d.h"
+#include "Constants.h"
 
 class Character : public cocos2d::Node
 {
 public:
     CREATE_FUNC(Character);
-    
-protected:
+//    CC_PROPERTY(Side, side, Side);
+    void setSide(Side side);
+    Side getSide();
+private:
+    Side side;
     
 };
 
