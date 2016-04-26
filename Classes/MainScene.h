@@ -3,6 +3,13 @@
 
 #include "cocos2d.h"
 #include "Piece.hpp"
+#include "ui/CocosGUI.h"
+
+enum class GameState
+{
+    Playing,
+    GameOver
+};
 
 class Character;
 
@@ -25,11 +32,23 @@ private:
     int pieceNum;
     int pieceIndex;     //bottom piece index
     Side lastObstacleSide;
-
+    GameState gameState;
+    cocos2d::ui::Text* scoreLabel;
+    int score;
+    float timeLeft;
+    cocos2d::Sprite* timeBar;
+    
     void onEnter() override;
     void setupTouchHandling();
     Side getSideForObstacle(Side side);
     void stepTower();
+    bool isGameOver();
+    void triggerGameOver();
+    void triggerPlaying();
+    void setScore(int score);
+    void setTimeLeft(float timeLeft);
+    void resetGameState();
+    void update(float dt) override;
 };
 
 #endif // __MainScene_SCENE_H__

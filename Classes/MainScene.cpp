@@ -122,15 +122,23 @@ bool MainScene::init()
     }
 
     this->character = rootNode->getChildByName<Character*>("character");
+    this->scoreLabel = rootNode->getChildByName<cocos2d::ui::Text*>("scoreLabel");
+    auto lifeBG = rootNode->getChildByName("lifeBG");
+    this->timeBar = lifeBG->getChildByName<Sprite*>("lifeBar");
     
+    this->gameState = GameState::Playing;
+
     addChild(rootNode);
+    
+    this->resetGameState();
 
     return true;
 }
 
 void MainScene::onEnter() {
     Layer::onEnter();
-    setupTouchHandling();
+    this->setupTouchHandling();
+    this->scheduleUpdate();
 }
 
 void MainScene::setupTouchHandling()
@@ -139,20 +147,39 @@ void MainScene::setupTouchHandling()
     
     touchListener->onTouchBegan = [&](Touch* touch, Event* event)
     {
-        // MainSceneの座標システムでタッチの位置を取得する
-        Vec2 touchLocation = this->convertTouchToNodeSpace(touch);
+        switch (this->gameState) {
+            case GameState::GameOver:
+                this->triggerPlaying();
+                break;
+                
+            case GameState::Playing:
+                // MainSceneの座標システムでタッチの位置を取得する
+                Vec2 touchLocation = this->convertTouchToNodeSpace(touch);
+                
+                // タッチが画面の右側か左側かを確認する
+                // キャラクターを適切なサイドに移動させる
+                if (touchLocation.x < this->getContentSize().width / 2.0f)
+                {
+                    this->character->setSide(Side::Left);
+                }
+                else
+                {
+                    this->character->setSide(Side::Right);
+                }
+                
+                if (this->isGameOver())
+                {
+                    this->triggerGameOver();
+                    return true;
+                }
+
+                this->stepTower();
+                this->setScore(this->score + 1);
+                this->setTimeLeft(this->timeLeft + 0.25f);
+                
+                break;
+        }
         
-        // タッチが画面の右側か左側かを確認する
-        // キャラクターを適切なサイドに移動させる
-        if (touchLocation.x < this->getContentSize().width / 2.0f)
-        {
-            this->character->setSide(Side::Left);
-        }
-        else
-        {
-            this->character->setSide(Side::Right);
-        }
-        stepTower();
         return true;
     };
     
@@ -197,4 +224,77 @@ void MainScene::stepTower()
     this->pieceNode->setPositionY(this->pieceNode ->getPositionY() + -1.0f * pieceHeight / 2.0f);
     
     this->pieceIndex = (this->pieceIndex + 1) % this->pieceNum;
+
+    //Check GameOver
+    if (this->isGameOver())
+    {
+        this->triggerGameOver();
+    }
+}
+
+bool MainScene::isGameOver()
+{
+    if (this->character->getSide() == this->pieces.at(this->pieceIndex)->getObstacleSide())
+    {
+        return true;
+    } else
+    {
+        return false;
+    }
+}
+
+void MainScene::triggerGameOver()
+{
+    this->gameState = GameState::GameOver;
+    this->setTimeLeft(0.0f);
+}
+
+void MainScene::triggerPlaying()
+{
+    this->resetGameState();
+    this->gameState = GameState::Playing;
+}
+
+void MainScene::setScore(int score)
+{
+    // スコアのインスタンス変数をアップデートする
+    this->score = score;
+    
+    // スコアのラベルをアップデートする
+    this->scoreLabel->setString(std::to_string(this->score));
+}
+
+void MainScene::setTimeLeft(float timeLeft)
+{
+    // 残り時間を0秒と10秒の間に固定する
+    this->timeLeft = clampf(timeLeft, 0.0f, 10.0f);
+    
+    // 残り時間を正しく表示するためにUIをアップデートする
+    this->timeBar->setScaleX(timeLeft / 10.0f);
+}
+
+void MainScene::resetGameState()
+{
+    // 新規ゲーム開始時に、一番下のピースには障害物がないことを確認する
+    Piece* currentPiece = this->pieces.at(this->pieceIndex);
+    currentPiece->setObstacleSide(Side::None);
+ 
+    setScore(0);
+    setTimeLeft(5.0f);
+}
+
+void MainScene::update(float dt)
+{
+    Layer::update(dt);
+    
+    if (gameState == GameState::Playing)
+    {
+        setTimeLeft(timeLeft - dt);
+    }
+    
+    // タイマーが0以下なら、ゲームは終了
+    if (this->timeLeft <= 0.0f)
+    {
+        this->triggerGameOver();
+    }
 }
