@@ -126,7 +126,7 @@ bool MainScene::init()
     auto lifeBG = rootNode->getChildByName("lifeBG");
     this->timeBar = lifeBG->getChildByName<Sprite*>("lifeBar");
     
-    this->gameState = GameState::Playing;
+    this->gameState = GameState::Title;
 
     addChild(rootNode);
     
@@ -138,6 +138,7 @@ bool MainScene::init()
 void MainScene::onEnter() {
     Layer::onEnter();
     this->setupTouchHandling();
+    this->triggerTitle();
     this->scheduleUpdate();
 }
 
@@ -148,11 +149,13 @@ void MainScene::setupTouchHandling()
     touchListener->onTouchBegan = [&](Touch* touch, Event* event)
     {
         switch (this->gameState) {
-            case GameState::GameOver:
-                this->triggerPlaying();
+            case GameState::Title:
+                this->triggerReady();
                 break;
-                
-            case GameState::Playing:
+            case GameState::Ready:
+                this->triggerPlaying();
+                // ここで「break」は不要！
+            case GameState::Playing: {
                 // MainSceneの座標システムでタッチの位置を取得する
                 Vec2 touchLocation = this->convertTouchToNodeSpace(touch);
                 
@@ -177,6 +180,10 @@ void MainScene::setupTouchHandling()
                 this->setScore(this->score + 1);
                 this->setTimeLeft(this->timeLeft + 0.25f);
                 
+                break;
+            }
+            case GameState::GameOver:
+                this->triggerReady();
                 break;
         }
         
@@ -253,6 +260,51 @@ void MainScene::triggerPlaying()
 {
     this->resetGameState();
     this->gameState = GameState::Playing;
+    
+    // 最上位のノードのリファレンスを取得
+    auto scene = this->getChildByName("Scene");
+    
+    // 左右のTAPのスプライトのリファレンスを取得
+    cocos2d::Sprite* tapLeft = scene->getChildByName<cocos2d::Sprite*>("tapLeft");
+    cocos2d::Sprite* tapRight = scene->getChildByName<cocos2d::Sprite*>("tapRight");
+    
+    // フェードアウトのアクションを2つ作成
+    cocos2d::FadeOut* leftFade = cocos2d::FadeOut::create(0.35f);
+    cocos2d::FadeOut* rightFade = cocos2d::FadeOut::create(0.35f);
+    
+    // フェードアウトのアクションを実行
+    tapLeft->runAction(leftFade);
+    tapRight->runAction(rightFade);
+    
+    this->scoreLabel->setVisible(true);
+}
+
+void MainScene::triggerTitle()
+{
+    this->gameState = GameState::Title;
+    cocostudio::timeline::ActionTimeline* titleTimeline = CSLoader::createTimeline("MainScene.csb");
+    this->stopAllActions();
+    this->runAction(titleTimeline);
+    titleTimeline->play("title", false);
+}
+
+void MainScene::triggerReady()
+{
+    auto scene = this->getChildByName("Scene");
+    
+    // 左右のTAPのスプライトのリファレンスを取得
+    cocos2d::Sprite* tapLeft = scene->getChildByName<cocos2d::Sprite*>("tapLeft");
+    cocos2d::Sprite* tapRight = scene->getChildByName<cocos2d::Sprite*>("tapRight");
+    
+    // スプライトが表示されるようにする
+    tapLeft->setOpacity(255);
+    tapRight->setOpacity(255);
+
+    this->gameState = GameState::Ready;
+    cocostudio::timeline::ActionTimeline* readyTimeline = CSLoader::createTimeline("MainScene.csb");
+    this->stopAllActions();
+    this->runAction(readyTimeline);
+    readyTimeline->play("ready", true);
 }
 
 void MainScene::setScore(int score)

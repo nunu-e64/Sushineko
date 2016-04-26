@@ -7,6 +7,8 @@
 
 enum class GameState
 {
+    Title,
+    Ready,
     Playing,
     GameOver
 };
@@ -45,6 +47,8 @@ private:
     bool isGameOver();
     void triggerGameOver();
     void triggerPlaying();
+    void triggerTitle();
+    void triggerReady();
     void setScore(int score);
     void setTimeLeft(float timeLeft);
     void resetGameState();

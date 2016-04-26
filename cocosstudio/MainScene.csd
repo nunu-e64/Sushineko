@@ -2,17 +2,116 @@
   <PropertyGroup Name="MainScene" Type="Scene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="0" Speed="1.0000" />
+      <Animation Duration="120" Speed="1.0000" ActivedAnimationName="ready">
+        <Timeline ActionTag="-158197328" Property="VisibleForFrame">
+          <BoolFrame FrameIndex="1" Tween="False" Value="False" />
+          <BoolFrame FrameIndex="61" Tween="False" Value="True" />
+        </Timeline>
+        <Timeline ActionTag="-1653859520" Property="Position">
+          <PointFrame FrameIndex="1" X="320.0000" Y="1344.0000">
+            <EasingData Type="5" />
+          </PointFrame>
+          <PointFrame FrameIndex="50" X="320.0000" Y="768.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+        </Timeline>
+        <Timeline ActionTag="-1653859520" Property="VisibleForFrame">
+          <BoolFrame FrameIndex="1" Tween="False" Value="True" />
+          <BoolFrame FrameIndex="61" Tween="False" Value="False" />
+        </Timeline>
+        <Timeline ActionTag="1783779050" Property="Position">
+          <PointFrame FrameIndex="61" X="64.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="90" X="0.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="120" X="64.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+        </Timeline>
+        <Timeline ActionTag="1783779050" Property="Scale">
+          <ScaleFrame FrameIndex="90" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="120" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="1783779050" Property="RotationSkew">
+          <ScaleFrame FrameIndex="90" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="120" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="1783779050" Property="VisibleForFrame">
+          <BoolFrame FrameIndex="1" Tween="False" Value="False" />
+          <BoolFrame FrameIndex="61" Tween="False" Value="True" />
+          <BoolFrame FrameIndex="90" Tween="False" Value="True" />
+          <BoolFrame FrameIndex="120" Tween="False" Value="True" />
+        </Timeline>
+        <Timeline ActionTag="-40503888" Property="Position">
+          <PointFrame FrameIndex="61" X="576.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="90" X="640.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="120" X="576.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+        </Timeline>
+        <Timeline ActionTag="-40503888" Property="Scale">
+          <ScaleFrame FrameIndex="90" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="120" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="-40503888" Property="RotationSkew">
+          <ScaleFrame FrameIndex="90" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="120" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="-40503888" Property="VisibleForFrame">
+          <BoolFrame FrameIndex="1" Tween="False" Value="False" />
+          <BoolFrame FrameIndex="61" Tween="False" Value="True" />
+          <BoolFrame FrameIndex="90" Tween="False" Value="True" />
+          <BoolFrame FrameIndex="120" Tween="False" Value="True" />
+        </Timeline>
+        <Timeline ActionTag="-40503888" Property="AnchorPoint">
+          <ScaleFrame FrameIndex="90" X="1.0000" Y="0.5000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="120" X="1.0000" Y="0.5000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+      </Animation>
+      <AnimationList>
+        <AnimationInfo Name="title" StartIndex="1" EndIndex="55">
+          <RenderColor A="150" R="0" G="255" B="255" />
+        </AnimationInfo>
+        <AnimationInfo Name="ready" StartIndex="61" EndIndex="120">
+          <RenderColor A="150" R="106" G="90" B="205" />
+        </AnimationInfo>
+      </AnimationList>
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="background_1" ActionTag="2039903722" Tag="8" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-64.0000" RightMargin="-64.0000" TopMargin="-176.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="background_1" ActionTag="2039903722" Tag="8" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-64.0000" RightMargin="-64.0000" TopMargin="-178.0000" BottomMargin="2.0000" ctype="SpriteObjectData">
             <Size X="768.0000" Y="1136.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position X="320.0000" />
+            <Position X="320.0000" Y="2.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" />
+            <PrePosition X="0.5000" Y="0.0021" />
             <PreSize X="1.2000" Y="1.1833" />
             <FileData Type="Normal" Path="Assets/Images/resources-2x/background.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
@@ -95,6 +194,39 @@
             <PrePosition X="0.5000" Y="0.9800" />
             <PreSize X="0.4797" Y="0.0854" />
             <FileData Type="Normal" Path="Assets/Images/resources-2x/life_bg.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="title_8" ActionTag="-1653859520" VisibleForFrame="False" Tag="28" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="88.5000" RightMargin="88.5000" TopMargin="192.0000" BottomMargin="479.0000" ctype="SpriteObjectData">
+            <Size X="463.0000" Y="289.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
+            <Position X="320.0000" Y="768.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.8000" />
+            <PreSize X="0.7234" Y="0.3010" />
+            <FileData Type="Normal" Path="Assets/Images/resources-2x/title.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="tapLeft" ActionTag="1783779050" Tag="29" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="64.0000" RightMargin="387.0000" TopMargin="837.5000" BottomMargin="45.5000" ctype="SpriteObjectData">
+            <Size X="189.0000" Y="77.0000" />
+            <AnchorPoint ScaleY="0.5000" />
+            <Position X="64.0000" Y="84.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.1000" Y="0.0875" />
+            <PreSize X="0.2953" Y="0.0802" />
+            <FileData Type="Normal" Path="Assets/Images/resources-2x/tap_left.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="tapRight" ActionTag="-40503888" Tag="30" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="387.0000" RightMargin="64.0000" TopMargin="837.5000" BottomMargin="45.5000" ctype="SpriteObjectData">
+            <Size X="189.0000" Y="77.0000" />
+            <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
+            <Position X="576.0000" Y="84.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.9000" Y="0.0875" />
+            <PreSize X="0.2953" Y="0.0802" />
+            <FileData Type="Normal" Path="Assets/Images/resources-2x/tap_right.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
