@@ -1,6 +1,8 @@
 #include "MainScene.h"
 #include "cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
+#include "CharacterReader.hpp"
+#include "PieceReader.hpp"
 
 USING_NS_CC;
 
@@ -83,6 +85,12 @@ bool MainScene::init()
     {
         return false;
     }
+    
+    // カスタムクラス用のReaderを登録する
+    // CharacterReader::getInstance()ではなく、CharacterReader::getInstanceとすること。さもなくばクラッシュするので、注意が必要
+    CSLoader* instance = CSLoader::getInstance();
+    instance->registReaderObject("CharacterReader", (ObjectFactory::Instance) CharacterReader::getInstance);
+    instance->registReaderObject("PieceReader", (ObjectFactory::Instance) PieceReader::getInstance);
     
     auto rootNode = CSLoader::createNode("MainScene.csb");
     Size size = Director::getInstance()->getVisibleSize();

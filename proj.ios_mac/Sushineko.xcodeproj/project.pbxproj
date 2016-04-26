@@ -55,6 +55,10 @@
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
+		CAD57AAF1CCF37DD00825385 /* Character.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAD57AAD1CCF37DD00825385 /* Character.cpp */; };
+		CAD57AB21CCF380000825385 /* CharacterReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAD57AB01CCF380000825385 /* CharacterReader.cpp */; };
+		CAD57AB51CCF385300825385 /* Piece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAD57AB31CCF385300825385 /* Piece.cpp */; };
+		CAD57AB81CCF388D00825385 /* PieceReader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CAD57AB61CCF388D00825385 /* PieceReader.cpp */; };
 		D44C620C132DFF330009C878 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620B132DFF330009C878 /* OpenAL.framework */; };
 		D44C620E132DFF430009C878 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620D132DFF430009C878 /* AVFoundation.framework */; };
 		D44C6210132DFF4E0009C878 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D44C620F132DFF4E0009C878 /* AudioToolbox.framework */; };
@@ -115,6 +119,14 @@
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CAD57AAD1CCF37DD00825385 /* Character.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Character.cpp; sourceTree = "<group>"; };
+		CAD57AAE1CCF37DD00825385 /* Character.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Character.hpp; sourceTree = "<group>"; };
+		CAD57AB01CCF380000825385 /* CharacterReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CharacterReader.cpp; sourceTree = "<group>"; };
+		CAD57AB11CCF380000825385 /* CharacterReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CharacterReader.hpp; sourceTree = "<group>"; };
+		CAD57AB31CCF385300825385 /* Piece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Piece.cpp; sourceTree = "<group>"; };
+		CAD57AB41CCF385300825385 /* Piece.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Piece.hpp; sourceTree = "<group>"; };
+		CAD57AB61CCF388D00825385 /* PieceReader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PieceReader.cpp; sourceTree = "<group>"; };
+		CAD57AB71CCF388D00825385 /* PieceReader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PieceReader.hpp; sourceTree = "<group>"; };
 		D44C620B132DFF330009C878 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		D44C620D132DFF430009C878 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D44C620F132DFF4E0009C878 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -247,6 +259,14 @@
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* MainScene.cpp */,
 				46880B8719C43A87006E1F66 /* MainScene.h */,
+				CAD57AAD1CCF37DD00825385 /* Character.cpp */,
+				CAD57AAE1CCF37DD00825385 /* Character.hpp */,
+				CAD57AB01CCF380000825385 /* CharacterReader.cpp */,
+				CAD57AB11CCF380000825385 /* CharacterReader.hpp */,
+				CAD57AB31CCF385300825385 /* Piece.cpp */,
+				CAD57AB41CCF385300825385 /* Piece.hpp */,
+				CAD57AB61CCF388D00825385 /* PieceReader.cpp */,
+				CAD57AB71CCF388D00825385 /* PieceReader.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -423,9 +443,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CAD57AB51CCF385300825385 /* Piece.cpp in Sources */,
+				CAD57AB21CCF380000825385 /* CharacterReader.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* MainScene.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
+				CAD57AB81CCF388D00825385 /* PieceReader.cpp in Sources */,
+				CAD57AAF1CCF37DD00825385 /* Character.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 			);
