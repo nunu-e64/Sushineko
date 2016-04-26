@@ -58,7 +58,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="play" ActionTag="-1685017609" Tag="19" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="218.5000" RightMargin="218.5000" TopMargin="417.0000" BottomMargin="417.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="173" Scale9Height="104" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
+          <AbstractNodeData Name="play" ActionTag="-1685017609" VisibleForFrame="False" Tag="19" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="218.5000" RightMargin="218.5000" TopMargin="417.0000" BottomMargin="417.0000" TouchEnable="True" FontSize="14" Scale9Enable="True" LeftEage="15" RightEage="15" TopEage="11" BottomEage="11" Scale9OriginX="15" Scale9OriginY="11" Scale9Width="173" Scale9Height="104" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="ButtonObjectData">
             <Size X="203.0000" Y="126.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="480.0000" />
@@ -72,6 +72,30 @@
             <NormalFileData Type="Normal" Path="Assets/Images/resources-2x/button.png" Plist="" />
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="lifeBG" ActionTag="-158197328" Tag="20" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="166.5000" RightMargin="166.5000" TopMargin="19.2000" BottomMargin="858.8000" ctype="SpriteObjectData">
+            <Size X="307.0000" Y="82.0000" />
+            <Children>
+              <AbstractNodeData Name="lifeBar" ActionTag="-1861469373" Tag="21" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="17.0000" RightMargin="18.0000" TopMargin="16.5000" BottomMargin="16.5000" ctype="SpriteObjectData">
+                <Size X="272.0000" Y="49.0000" />
+                <AnchorPoint ScaleY="0.5000" />
+                <Position X="17.0000" Y="41.0000" />
+                <Scale ScaleX="0.5000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.0554" Y="0.5000" />
+                <PreSize X="0.8860" Y="0.5976" />
+                <FileData Type="Normal" Path="Assets/Images/resources-2x/life.png" Plist="" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
+            <Position X="320.0000" Y="940.8000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.9800" />
+            <PreSize X="0.4797" Y="0.0854" />
+            <FileData Type="Normal" Path="Assets/Images/resources-2x/life_bg.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>
       </ObjectData>

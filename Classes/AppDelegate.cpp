@@ -1,5 +1,5 @@
 #include "AppDelegate.h"
-#include "HelloWorldScene.h"
+#include "MainScene.h"
 
 USING_NS_CC;
 
@@ -31,7 +31,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
     
-    director->getOpenGLView()->setDesignResolutionSize(640, 960, ResolutionPolicy::SHOW_ALL);
+//    director->getOpenGLView()->setDesignResolutionSize(640, 960, ResolutionPolicy::SHOW_ALL);
+    glview->setDesignResolutionSize(640, 960, ResolutionPolicy::SHOW_ALL);
 
     // turn on display FPS
     director->setDisplayStats(true);
@@ -40,9 +41,31 @@ bool AppDelegate::applicationDidFinishLaunching() {
     director->setAnimationInterval(1.0 / 60);
 
     FileUtils::getInstance()->addSearchPath("res");
+    std::vector<std::string> searchResolutionsOrder(1);
+    
+    cocos2d::Size targetSize = glview->getFrameSize();
+    
+    if (targetSize.height < 481.0f)
+    {
+        searchResolutionsOrder[0] = "resources-1x";
+    }
+    else if (targetSize.height < 1137.0f)
+    {
+        searchResolutionsOrder[0] = "resources-2x";
+    }
+    else if (targetSize.height < 2047.0f)
+    {
+        searchResolutionsOrder[0] = "resources-3x";
+    }
+    else
+    {
+        searchResolutionsOrder[0] = "resources-4x";
+    }
+    
+    FileUtils::getInstance()->setSearchResolutionsOrder(searchResolutionsOrder);
 
     // create a scene. it's an autorelease object
-    auto scene = HelloWorld::createScene();
+    auto scene = MainScene::createScene();
 
     // run
     director->runWithScene(scene);
