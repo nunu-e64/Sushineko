@@ -39,6 +39,7 @@ private:
     int score;
     float timeLeft;
     cocos2d::Sprite* timeBar;
+    cocos2d::Vec2 flyingPiecePosition;
     
     void onEnter() override;
     void setupTouchHandling();
@@ -53,6 +54,7 @@ private:
     void setTimeLeft(float timeLeft);
     void resetGameState();
     void update(float dt) override;
+    void animateHitPiece(Side obstacleSide);
 };
 
 #endif // __MainScene_SCENE_H__

@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "Constants.h"
+#include "cocostudio/CocoStudio.h"
 
 class Character : public cocos2d::Node
 {
@@ -19,8 +20,13 @@ public:
 //    CC_PROPERTY(Side, side, Side);
     void setSide(Side side);
     Side getSide();
+    
+    bool init() override;
+    void onExit() override;
+    void runChopAnimation();
 private:
     Side side;
+    cocostudio::timeline::ActionTimeline* timeline;
     
 };
 

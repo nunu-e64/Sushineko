@@ -140,6 +140,7 @@ void MainScene::onEnter() {
     this->setupTouchHandling();
     this->triggerTitle();
     this->scheduleUpdate();
+    this->flyingPiecePosition = this->pieceNode->getPosition();
 }
 
 void MainScene::setupTouchHandling()
@@ -177,6 +178,7 @@ void MainScene::setupTouchHandling()
                 }
 
                 this->stepTower();
+                this->character->runChopAnimation();
                 this->setScore(this->score + 1);
                 this->setTimeLeft(this->timeLeft + 0.25f);
                 
@@ -221,7 +223,9 @@ void MainScene::stepTower()
 {
     auto currentPiece = this->pieces.at(this->pieceIndex);
     float pieceHeight = currentPiece->getSpriteHeight();
-    
+
+    this->animateHitPiece(currentPiece->getObstacleSide());
+
     currentPiece->setPositionY(currentPiece->getPositionY() + pieceHeight / 2.0f * this->pieceNum);
     currentPiece->setLocalZOrder(currentPiece->getLocalZOrder() + 1);
 
@@ -350,4 +354,40 @@ void MainScene::update(float dt)
     {
         this->triggerGameOver();
     }
+}
+
+void MainScene::animateHitPiece(Side obstacleSide)
+{
+    Piece* flyingPiece = static_cast<Piece*>(CSLoader::createNode("Piece.csb"));
+    flyingPiece->setObstacleSide(obstacleSide);
+    flyingPiece->setPosition(this->flyingPiecePosition);
+    
+    this->addChild(flyingPiece);
+    
+    // キャラクターのアニメーションのタイムラインを読み込む
+    ActionTimeline* pieceTimeline = CSLoader::createTimeline("Piece.csb");
+    
+    this->runAction(pieceTimeline);
+    
+    if (this->character->getSide() == Side::Left)
+    {
+        pieceTimeline->play("moveLeft", false);
+    } else
+    {
+        pieceTimeline->play("moveRight", false);
+    }
+    
+    // アニメーションの最後のフレームでシーンからピースを取り除く
+    pieceTimeline->setLastFrameCallFunc([this, &flyingPiece]() {
+        this->removeChild(flyingPiece);
+    });
+    
+//    1.「 flyingPiece」という名前の新しいピースを作成する
+//    2.正しいサイドに障害物を配置する
+//    3. flyingPieceが正しい場所から飛び出すように見えるようその位置を設定する
+//    4. flyingPieceをシーンに追加する
+//    5. "Piece.csb"から「pieceTimeline」という名前の新しい ActionTimelineを作成する
+//    6. Characterがいる Sideに基づいて、ピースが左右どちらに飛んでいくべきかを判定する
+//    7. flyingPieceに pieceTimelineを実行させる
+//    8. pieceTimelineに正しいアニメーションを再生するよう伝える
 }
