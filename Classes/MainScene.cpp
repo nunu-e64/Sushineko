@@ -258,7 +258,6 @@ void MainScene::triggerGameOver()
 
 void MainScene::triggerPlaying()
 {
-    this->resetGameState();
     this->gameState = GameState::Playing;
     
     // 最上位のノードのリファレンスを取得
@@ -290,6 +289,8 @@ void MainScene::triggerTitle()
 
 void MainScene::triggerReady()
 {
+    this->resetGameState();
+    
     auto scene = this->getChildByName("Scene");
     
     // 左右のTAPのスプライトのリファレンスを取得
