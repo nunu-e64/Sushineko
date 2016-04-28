@@ -2,71 +2,8 @@
   <PropertyGroup Name="Piece" Type="Node" ID="f73f993b-8f7b-4a3a-856d-498057d618fb" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="96" Speed="1.0000" ActivedAnimationName="default">
-        <Timeline ActionTag="-168504763" Property="Position">
-          <PointFrame FrameIndex="0" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-          <PointFrame FrameIndex="1" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-          <PointFrame FrameIndex="48" X="800.0000" Y="200.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-          <PointFrame FrameIndex="49" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-          <PointFrame FrameIndex="96" X="-800.0000" Y="200.0000">
-            <EasingData Type="0" />
-          </PointFrame>
-        </Timeline>
-        <Timeline ActionTag="-168504763" Property="Scale">
-          <ScaleFrame FrameIndex="0" X="1.0000" Y="1.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="1" X="1.0000" Y="1.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="48" X="1.0000" Y="1.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="49" X="1.0000" Y="1.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="96" X="1.0000" Y="1.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-        </Timeline>
-        <Timeline ActionTag="-168504763" Property="RotationSkew">
-          <ScaleFrame FrameIndex="0" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="1" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="48" X="120.0000" Y="120.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="49" X="0.0000" Y="0.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-          <ScaleFrame FrameIndex="96" X="-120.0000" Y="-120.0000">
-            <EasingData Type="0" />
-          </ScaleFrame>
-        </Timeline>
-      </Animation>
-      <AnimationList>
-        <AnimationInfo Name="default" StartIndex="0" EndIndex="0">
-          <RenderColor A="150" R="250" G="235" B="215" />
-        </AnimationInfo>
-        <AnimationInfo Name="moveRight" StartIndex="1" EndIndex="48">
-          <RenderColor A="150" R="50" G="205" B="50" />
-        </AnimationInfo>
-        <AnimationInfo Name="moveLeft" StartIndex="49" EndIndex="96">
-          <RenderColor A="150" R="65" G="105" B="225" />
-        </AnimationInfo>
-      </AnimationList>
-      <ObjectData Name="Node" Tag="4" ctype="GameNodeObjectData">
+      <Animation Duration="0" Speed="1.0000" />
+      <ObjectData Name="Node" CustomClassName="Piece" Tag="4" ctype="GameNodeObjectData">
         <Size X="0.0000" Y="0.0000" />
         <Children>
           <AbstractNodeData Name="roll" ActionTag="-168504763" Tag="5" IconVisible="False" LeftMargin="-105.0000" RightMargin="-105.0000" TopMargin="-122.5000" BottomMargin="-122.5000" ctype="SpriteObjectData">
