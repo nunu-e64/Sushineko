@@ -2,7 +2,7 @@
   <PropertyGroup Name="MainScene" Type="Scene" ID="a2ee0952-26b5-49ae-8bf9-4f1d6279b798" Version="3.10.0.0" />
   <Content ctype="GameProjectContent">
     <Content>
-      <Animation Duration="120" Speed="1.0000" ActivedAnimationName="ready">
+      <Animation Duration="151" Speed="1.0000" ActivedAnimationName="gameOver">
         <Timeline ActionTag="-158197328" Property="VisibleForFrame">
           <BoolFrame FrameIndex="1" Tween="False" Value="False" />
           <BoolFrame FrameIndex="61" Tween="False" Value="True" />
@@ -93,22 +93,91 @@
             <EasingData Type="0" />
           </ScaleFrame>
         </Timeline>
+        <Timeline ActionTag="47259252" Property="Position">
+          <PointFrame FrameIndex="0" X="320.0000" Y="960.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="121" X="320.0000" Y="1920.0000">
+            <EasingData Type="20" />
+          </PointFrame>
+          <PointFrame FrameIndex="151" X="320.0000" Y="960.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+        </Timeline>
+        <Timeline ActionTag="47259252" Property="Scale">
+          <ScaleFrame FrameIndex="0" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="121" X="1.0000" Y="1.0000">
+            <EasingData Type="20" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="151" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="47259252" Property="RotationSkew">
+          <ScaleFrame FrameIndex="0" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="121" X="0.0000" Y="0.0000">
+            <EasingData Type="20" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="151" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="47259252" Property="VisibleForFrame">
+          <BoolFrame FrameIndex="0" Tween="False" Value="False" />
+          <BoolFrame FrameIndex="121" Tween="False" Value="True" />
+          <BoolFrame FrameIndex="151" Tween="False" Value="True" />
+        </Timeline>
+        <Timeline ActionTag="-804435101" Property="Position">
+          <PointFrame FrameIndex="0" X="320.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+          <PointFrame FrameIndex="121" X="320.0000" Y="84.0000">
+            <EasingData Type="0" />
+          </PointFrame>
+        </Timeline>
+        <Timeline ActionTag="-804435101" Property="Scale">
+          <ScaleFrame FrameIndex="0" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="121" X="1.0000" Y="1.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="-804435101" Property="RotationSkew">
+          <ScaleFrame FrameIndex="0" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+          <ScaleFrame FrameIndex="121" X="0.0000" Y="0.0000">
+            <EasingData Type="0" />
+          </ScaleFrame>
+        </Timeline>
+        <Timeline ActionTag="-804435101" Property="VisibleForFrame">
+          <BoolFrame FrameIndex="0" Tween="False" Value="False" />
+          <BoolFrame FrameIndex="121" Tween="False" Value="True" />
+        </Timeline>
       </Animation>
       <AnimationList>
         <AnimationInfo Name="title" StartIndex="1" EndIndex="55">
-          <RenderColor A="150" R="0" G="255" B="255" />
+          <RenderColor A="255" R="0" G="255" B="255" />
         </AnimationInfo>
         <AnimationInfo Name="ready" StartIndex="61" EndIndex="120">
-          <RenderColor A="150" R="106" G="90" B="205" />
+          <RenderColor A="255" R="106" G="90" B="205" />
+        </AnimationInfo>
+        <AnimationInfo Name="gameOver" StartIndex="121" EndIndex="151">
+          <RenderColor A="150" R="255" G="0" B="255" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
         <Size X="640.0000" Y="960.0000" />
         <Children>
-          <AbstractNodeData Name="background_1" ActionTag="2039903722" Tag="8" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-64.0000" RightMargin="-64.0000" TopMargin="-178.0000" BottomMargin="2.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="background_1" ActionTag="2039903722" Tag="8" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="-64.0000" RightMargin="-64.0000" TopMargin="-178.0160" BottomMargin="2.0160" ctype="SpriteObjectData">
             <Size X="768.0000" Y="1136.0000" />
             <AnchorPoint ScaleX="0.5000" />
-            <Position X="320.0000" Y="2.0000" />
+            <Position X="320.0000" Y="2.0160" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
             <PrePosition X="0.5000" Y="0.0021" />
@@ -116,7 +185,7 @@
             <FileData Type="Normal" Path="Assets/Images/resources-2x/background.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="character" ActionTag="690027771" Tag="9" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="320.0000" RightMargin="320.0000" TopMargin="730.0000" BottomMargin="230.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="character" ActionTag="690027771" Tag="9" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="320.0000" RightMargin="320.0000" TopMargin="730.0000" BottomMargin="230.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="0.5000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position X="320.0000" Y="230.0000" />
@@ -126,7 +195,7 @@
             <PreSize X="0.0000" Y="0.0000" />
             <FileData Type="Normal" Path="Character.csd" Plist="" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mainPieceNode" ActionTag="-81594889" Tag="12" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="320.0000" RightMargin="320.0000" TopMargin="668.0000" BottomMargin="292.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="1.0000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
+          <AbstractNodeData Name="mainPieceNode" ActionTag="-81594889" Tag="12" IconVisible="True" PositionPercentXEnabled="True" LeftMargin="320.0000" RightMargin="320.0000" TopMargin="668.0000" BottomMargin="292.0000" StretchWidthEnable="False" StretchHeightEnable="False" InnerActionSpeed="0.5000" CustomSizeEnabled="False" ctype="ProjectNodeObjectData">
             <Size X="0.0000" Y="0.0000" />
             <AnchorPoint />
             <Position X="320.0000" Y="292.0000" />
@@ -227,6 +296,65 @@
             <PrePosition X="0.9000" Y="0.0875" />
             <PreSize X="0.2953" Y="0.0802" />
             <FileData Type="Normal" Path="Assets/Images/resources-2x/tap_right.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="mat" ActionTag="47259252" Tag="34" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-64.0000" RightMargin="-64.0000" TopMargin="-615.3494" BottomMargin="439.3494" ctype="SpriteObjectData">
+            <Size X="768.0000" Y="1136.0000" />
+            <Children>
+              <AbstractNodeData Name="gameOver_6" ActionTag="1820754064" Tag="35" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="152.5000" RightMargin="152.5000" TopMargin="113.6000" BottomMargin="728.4000" ctype="SpriteObjectData">
+                <Size X="463.0000" Y="294.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
+                <Position X="384.0000" Y="1022.4000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.9000" />
+                <PreSize X="0.6029" Y="0.2588" />
+                <FileData Type="Normal" Path="Assets/Images/resources-2x/gameOver.png" Plist="" />
+                <BlendFunc Src="1" Dst="771" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="gameOverScore" ActionTag="-615123999" Tag="36" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="237.5000" RightMargin="237.5000" TopMargin="487.7800" BottomMargin="533.2200" FontSize="100" LabelText="score" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="293.0000" Y="115.0000" />
+                <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+                <Position X="384.0000" Y="590.7200" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.5000" Y="0.5200" />
+                <PreSize X="0.3815" Y="0.1012" />
+                <FontResource Type="Normal" Path="Assets/Fonts/Game of Three.ttf" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+              <AbstractNodeData Name="gameOverScoreLabel" ActionTag="1535290515" Tag="37" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="357.5000" RightMargin="357.5000" TopMargin="578.6600" BottomMargin="442.3400" FontSize="100" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+                <Size X="53.0000" Y="115.0000" />
+                <AnchorPoint ScaleX="0.4811" ScaleY="0.4492" />
+                <Position X="383.0000" Y="494.0000" />
+                <Scale ScaleX="1.0000" ScaleY="1.0000" />
+                <CColor A="255" R="255" G="255" B="255" />
+                <PrePosition X="0.4987" Y="0.4349" />
+                <PreSize X="0.0690" Y="0.1012" />
+                <FontResource Type="Normal" Path="Assets/Fonts/Game of Three.ttf" Plist="" />
+                <OutlineColor A="255" R="255" G="0" B="0" />
+                <ShadowColor A="255" R="110" G="110" B="110" />
+              </AbstractNodeData>
+            </Children>
+            <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
+            <Position X="320.0000" Y="1575.3494" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="1.6410" />
+            <PreSize X="1.2000" Y="1.1833" />
+            <FileData Type="Normal" Path="Assets/Images/resources-2x/mat.png" Plist="" />
+            <BlendFunc Src="1" Dst="771" />
+          </AbstractNodeData>
+          <AbstractNodeData Name="play" ActionTag="-804435101" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="218.5000" RightMargin="218.5000" TopMargin="813.0000" BottomMargin="21.0000" ctype="SpriteObjectData">
+            <Size X="203.0000" Y="126.0000" />
+            <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
+            <Position X="320.0000" Y="84.0000" />
+            <Scale ScaleX="1.0000" ScaleY="1.0000" />
+            <CColor A="255" R="255" G="255" B="255" />
+            <PrePosition X="0.5000" Y="0.0875" />
+            <PreSize X="0.3172" Y="0.1312" />
+            <FileData Type="Normal" Path="Assets/Images/resources-2x/button.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
         </Children>

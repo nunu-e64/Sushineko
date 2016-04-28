@@ -232,7 +232,8 @@ void MainScene::stepTower()
     this->lastObstacleSide = getSideForObstacle(this->lastObstacleSide);
     currentPiece->setObstacleSide(this->lastObstacleSide);
                                   
-    this->pieceNode->setPositionY(this->pieceNode ->getPositionY() + -1.0f * pieceHeight / 2.0f);
+    cocos2d::MoveBy* moveAction = cocos2d::MoveBy::create(0.15f, Vec2(0.0f, -1.0f * pieceHeight / 2.0f));
+    this->pieceNode->runAction(moveAction);
     
     this->pieceIndex = (this->pieceIndex + 1) % this->pieceNum;
 
@@ -258,6 +259,20 @@ void MainScene::triggerGameOver()
 {
     this->gameState = GameState::GameOver;
     this->setTimeLeft(0.0f);
+    
+    // 最上位のノードのリファレンスを取得する
+    auto scene = this->getChildByName("Scene");
+    
+    // 「mat」のスプライトのリファレンスを取得する
+    auto mat = scene->getChildByName("mat");// ゲームオーバーのスコアラベルのリファレンスを取得する
+    cocos2d::ui::Text* gameOverScoreLabel = mat->getChildByName<cocos2d::ui::Text*>("gameOverScoreLabel");// スコアラベルをユーザーのスコアに設定する
+    gameOverScoreLabel->setString(std::to_string(this->score));
+    
+    // ゲームオーバーのアニメーションを読み込み、起動する
+    cocostudio::timeline::ActionTimeline* gameOverTimeline = CSLoader::createTimeline("MainScene.csb");
+    this->stopAllActions();
+    this->runAction(gameOverTimeline);
+    gameOverTimeline->play("gameOver", false);
 }
 
 void MainScene::triggerPlaying()
@@ -369,7 +384,7 @@ void MainScene::animateHitPiece(Side obstacleSide)
     
     this->runAction(pieceTimeline);
     
-    if (this->character->getSide() == Side::Left)
+    if (this->character->getSide() == Side::Right)
     {
         pieceTimeline->play("moveLeft", false);
     } else
