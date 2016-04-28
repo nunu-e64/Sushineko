@@ -108,10 +108,10 @@ bool MainScene::init()
     this->lastObstacleSide = Side::Left;
     
     for (int i = 0; i < this->pieceNum; ++i) {
-        auto hoge = CSLoader::createNode("Piece.csb");
+//        auto hoge = CSLoader::createNode("Piece.csb");
 //        Piece* piece = dynamic_cast<Piece*>(hoge);
-        Piece* piece = static_cast<Piece*>(hoge);
-//        Piece* piece = dynamic_cast<Piece*>(CSLoader::createNode("Piece.csb"));
+//        Piece* piece = static_cast<Piece*>(hoge);
+        Piece* piece = dynamic_cast<Piece*>(CSLoader::createNode("Piece.csb"));
         
         float rollHeight = piece->getSpriteHeight();
         piece->setPosition(0.0f, rollHeight / 2.0f * i);
@@ -358,7 +358,7 @@ void MainScene::update(float dt)
 
 void MainScene::animateHitPiece(Side obstacleSide)
 {
-    Piece* flyingPiece = static_cast<Piece*>(CSLoader::createNode("Piece.csb"));
+    Piece* flyingPiece = dynamic_cast<Piece*>(CSLoader::createNode("Piece.csb"));
     flyingPiece->setObstacleSide(obstacleSide);
     flyingPiece->setPosition(this->flyingPiecePosition);
     
