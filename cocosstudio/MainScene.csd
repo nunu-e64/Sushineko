@@ -168,7 +168,7 @@
           <RenderColor A="255" R="106" G="90" B="205" />
         </AnimationInfo>
         <AnimationInfo Name="gameOver" StartIndex="121" EndIndex="151">
-          <RenderColor A="150" R="255" G="0" B="255" />
+          <RenderColor A="255" R="255" G="0" B="255" />
         </AnimationInfo>
       </AnimationList>
       <ObjectData Name="Scene" ctype="GameNodeObjectData">
@@ -241,7 +241,7 @@
             <OutlineColor A="255" R="255" G="0" B="0" />
             <ShadowColor A="255" R="110" G="110" B="110" />
           </AbstractNodeData>
-          <AbstractNodeData Name="lifeBG" ActionTag="-158197328" Tag="20" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="166.5000" RightMargin="166.5000" TopMargin="19.2000" BottomMargin="858.8000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="lifeBG" ActionTag="-158197328" VisibleForFrame="False" Tag="20" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="166.5000" RightMargin="166.5000" TopMargin="19.2000" BottomMargin="858.8000" ctype="SpriteObjectData">
             <Size X="307.0000" Y="82.0000" />
             <Children>
               <AbstractNodeData Name="lifeBar" ActionTag="-1861469373" Tag="21" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="17.0000" RightMargin="18.0000" TopMargin="16.5000" BottomMargin="16.5000" ctype="SpriteObjectData">
@@ -265,18 +265,18 @@
             <FileData Type="Normal" Path="Assets/Images/resources-2x/life_bg.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="title_8" ActionTag="-1653859520" VisibleForFrame="False" Tag="28" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="88.5000" RightMargin="88.5000" TopMargin="192.0000" BottomMargin="479.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="title_8" ActionTag="-1653859520" Tag="28" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="88.5000" RightMargin="88.5000" TopMargin="-384.0000" BottomMargin="1055.0000" ctype="SpriteObjectData">
             <Size X="463.0000" Y="289.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="320.0000" Y="768.0000" />
+            <Position X="320.0000" Y="1344.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="0.8000" />
+            <PrePosition X="0.5000" Y="1.4000" />
             <PreSize X="0.7234" Y="0.3010" />
             <FileData Type="Normal" Path="Assets/Images/resources-2x/title.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="tapLeft" ActionTag="1783779050" Tag="29" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="64.0000" RightMargin="387.0000" TopMargin="837.5000" BottomMargin="45.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="tapLeft" ActionTag="1783779050" VisibleForFrame="False" Tag="29" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="64.0000" RightMargin="387.0000" TopMargin="837.5000" BottomMargin="45.5000" ctype="SpriteObjectData">
             <Size X="189.0000" Y="77.0000" />
             <AnchorPoint ScaleY="0.5000" />
             <Position X="64.0000" Y="84.0000" />
@@ -287,7 +287,7 @@
             <FileData Type="Normal" Path="Assets/Images/resources-2x/tap_left.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="tapRight" ActionTag="-40503888" Tag="30" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="387.0000" RightMargin="64.0000" TopMargin="837.5000" BottomMargin="45.5000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="tapRight" ActionTag="-40503888" VisibleForFrame="False" Tag="30" IconVisible="False" PositionPercentYEnabled="True" LeftMargin="387.0000" RightMargin="64.0000" TopMargin="837.5000" BottomMargin="45.5000" ctype="SpriteObjectData">
             <Size X="189.0000" Y="77.0000" />
             <AnchorPoint ScaleX="1.0000" ScaleY="0.5000" />
             <Position X="576.0000" Y="84.0000" />
@@ -298,7 +298,7 @@
             <FileData Type="Normal" Path="Assets/Images/resources-2x/tap_right.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="mat" ActionTag="47259252" Tag="34" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-64.0000" RightMargin="-64.0000" TopMargin="-615.3494" BottomMargin="439.3494" ctype="SpriteObjectData">
+          <AbstractNodeData Name="mat" ActionTag="47259252" VisibleForFrame="False" Tag="34" IconVisible="False" PositionPercentXEnabled="True" LeftMargin="-64.0000" RightMargin="-64.0000" BottomMargin="-176.0000" ctype="SpriteObjectData">
             <Size X="768.0000" Y="1136.0000" />
             <Children>
               <AbstractNodeData Name="gameOver_6" ActionTag="1820754064" Tag="35" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="152.5000" RightMargin="152.5000" TopMargin="113.6000" BottomMargin="728.4000" ctype="SpriteObjectData">
@@ -324,10 +324,10 @@
                 <OutlineColor A="255" R="255" G="0" B="0" />
                 <ShadowColor A="255" R="110" G="110" B="110" />
               </AbstractNodeData>
-              <AbstractNodeData Name="gameOverScoreLabel" ActionTag="1535290515" Tag="37" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="357.5000" RightMargin="357.5000" TopMargin="578.6600" BottomMargin="442.3400" FontSize="100" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
+              <AbstractNodeData Name="gameOverScoreLabel" ActionTag="1535290515" Tag="37" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="357.5033" RightMargin="357.4967" TopMargin="578.6116" BottomMargin="442.3884" FontSize="100" LabelText="0" ShadowOffsetX="2.0000" ShadowOffsetY="-2.0000" ctype="TextObjectData">
                 <Size X="53.0000" Y="115.0000" />
                 <AnchorPoint ScaleX="0.4811" ScaleY="0.4492" />
-                <Position X="383.0000" Y="494.0000" />
+                <Position X="383.0016" Y="494.0464" />
                 <Scale ScaleX="1.0000" ScaleY="1.0000" />
                 <CColor A="255" R="255" G="255" B="255" />
                 <PrePosition X="0.4987" Y="0.4349" />
@@ -338,15 +338,15 @@
               </AbstractNodeData>
             </Children>
             <AnchorPoint ScaleX="0.5000" ScaleY="1.0000" />
-            <Position X="320.0000" Y="1575.3494" />
+            <Position X="320.0000" Y="960.0000" />
             <Scale ScaleX="1.0000" ScaleY="1.0000" />
             <CColor A="255" R="255" G="255" B="255" />
-            <PrePosition X="0.5000" Y="1.6410" />
+            <PrePosition X="0.5000" Y="1.0000" />
             <PreSize X="1.2000" Y="1.1833" />
             <FileData Type="Normal" Path="Assets/Images/resources-2x/mat.png" Plist="" />
             <BlendFunc Src="1" Dst="771" />
           </AbstractNodeData>
-          <AbstractNodeData Name="play" ActionTag="-804435101" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="218.5000" RightMargin="218.5000" TopMargin="813.0000" BottomMargin="21.0000" ctype="SpriteObjectData">
+          <AbstractNodeData Name="play" ActionTag="-804435101" VisibleForFrame="False" Tag="38" IconVisible="False" PositionPercentXEnabled="True" PositionPercentYEnabled="True" LeftMargin="218.5000" RightMargin="218.5000" TopMargin="813.0000" BottomMargin="21.0000" ctype="SpriteObjectData">
             <Size X="203.0000" Y="126.0000" />
             <AnchorPoint ScaleX="0.5000" ScaleY="0.5000" />
             <Position X="320.0000" Y="84.0000" />

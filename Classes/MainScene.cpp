@@ -273,6 +273,14 @@ void MainScene::triggerGameOver()
     this->stopAllActions();
     this->runAction(gameOverTimeline);
     gameOverTimeline->play("gameOver", false);
+    
+    //FakeSushiの削除
+    for (auto child : this->getChildren()) {
+        bool isRemove= dynamic_cast<Piece*>(child);
+        if (isRemove) {
+            this->removeChildByName("FakePiece");
+        }
+    }
 }
 
 void MainScene::triggerPlaying()
@@ -376,7 +384,7 @@ void MainScene::animateHitPiece(Side obstacleSide)
     Piece* flyingPiece = dynamic_cast<Piece*>(CSLoader::createNode("Piece.csb"));
     flyingPiece->setObstacleSide(obstacleSide);
     flyingPiece->setPosition(this->flyingPiecePosition);
-    
+    flyingPiece->setName("FakePiece");
     this->addChild(flyingPiece);
     
     // キャラクターのアニメーションのタイムラインを読み込む
